@@ -4,11 +4,6 @@ import co.com.fppractice.MiAlgebra.Ayudante
 
 case class TypePractice()
 
-trait Lista[+A]
-
-case class ListaNoVacia[A](valor:A,lista:Lista[A]) extends Lista[A]
-
-case object Vacio extends Lista[Nothing]
 
 trait MiAlgebra[A]{
   def cabeza[A](lista:Lista[A]):A
@@ -20,14 +15,14 @@ object MiAlgebra {
     def cabeza:A = {
       lista match {
         case ListaNoVacia(value,_) => value
-        case Vacio => throw new NoSuchElementException("Lista vacía")
+        case ListaVacia => throw new NoSuchElementException("Lista vacía")
       }
     }
     def colaLista:Lista[A] = {
       lista match {
         case ListaNoVacia(_, lista) => lista
-        case ListaNoVacia(_,Vacio) => Vacio
-        case Vacio => throw new NoSuchElementException("Lista vacía")
+        case ListaNoVacia(_,ListaVacia) => ListaVacia
+        case ListaVacia => throw new NoSuchElementException("Lista vacía")
       }
     }
 
@@ -42,7 +37,7 @@ case object MADERA extends DTO
 case object PINO extends DTO
 
 object app extends App{
-  val lista: Lista[Int] = ListaNoVacia(1,ListaNoVacia(2,Vacio))
+  val lista: Lista[Int] = ListaNoVacia(1,ListaNoVacia(2,ListaVacia))
   //val ayudante = new Ayudante(lista)
   val cabeza = lista.cabeza
   println(cabeza)
