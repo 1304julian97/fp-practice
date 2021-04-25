@@ -2,7 +2,6 @@ package co.com.fppractice
 
 import java.util.concurrent.TimeoutException
 
-import co.com.fppractice.FuturoOp.FutureSintax
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Await, Future, TimeoutException}
@@ -28,11 +27,11 @@ object FuturoOp {
       Future.fromTry(result)
     }
 
-    def onTimeOut[B](function1: Function1[Unit,B]): B = {
+    def onTimeOut(function1: Function0[A]): A = {
       val result = future.andThen {
         case Success(value) => value
         case Failure(exception) => exception match {
-          case TimeoutException => function1.apply()
+          case t:TimeoutException => function1.apply()
           case _ => throw exception
         }
       }
@@ -46,7 +45,7 @@ object FuturoOp {
       future.andThen{
         case Success(value) => Future.successful(value)
         case Failure(exception) => exception match {
-          case TimeoutException => function1.apply()
+          case _:TimeoutException => function1.apply()
           case _ => Future.failed(exception)
         }
       }
