@@ -17,8 +17,6 @@ object TypeClassOpcionalInstance{
 
 }
 
-
-
 sealed trait Lista[+A]
 final case class ListaNoVacia[A](valor:A,lista:Lista[A]) extends Lista[A]
 final case object ListaVacia extends Lista[Nothing]
@@ -43,7 +41,6 @@ object TypeClassInstance {
     }
     override def cola(lista: Lista[A]): Lista[A] = lista match {
       case ListaNoVacia(_, lista) => lista
-      case ListaNoVacia(_,ListaVacia) => ListaVacia
       case ListaVacia => throw new NoSuchElementException("Lista vacía")
     }
   }
