@@ -3,7 +3,7 @@ package co.com.fppractice.opaque
 import io.estatico.newtype.macros.newtype
 
 object NewTypes {
-  object AgeInYears {
+/*  object AgeInYears {
     @newtype case class Opaque(years: Int)
   }
 
@@ -32,4 +32,6 @@ object NewTypes {
   //val age1 = 2 + AgeInYears(3)  // error: overloaded method value + with alternatives:
   //val age2 = AgeInYears(3) + 2  // error: type mismatch
   val age3 = AgeInYears.Opaque(3) + "aaa"  // scala/bug#8229
+
+ */
 }

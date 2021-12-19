@@ -1,6 +1,5 @@
 package co.com.fppractice
 
-import java.util.concurrent.TimeoutException
 
 
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -57,34 +56,3 @@ object FuturoOp {
   }
 }
 
-
-object Main extends App{
-
-  /*val future = Future{
-    Thread.sleep(5000)
-    "hola"
-  }
-
-  val f = future.waitUntil(2.seconds).onComplete{
-    case Success(value) => println(value)
-    case Failure(exception) => println(exception.getMessage)
-  }
-
-  future.recover()
-
-  println(f)
-
-*/
-
-  /*package object opaquetypes {
-    opaque type Cilindraje = Double
-
-    object Cilindraje{
-      val hola = "adasdf"
-    }
-  }
-
-  case class Carro(marca:Marca, cilindraje:Cilindraje)
-
-*/
-}

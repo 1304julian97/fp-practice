@@ -1,14 +1,14 @@
 package co.com.fppractice
 
-import co.com.fppractice.NewTypesExample.{Foo, Foo2, metodo1, metodo2, metodo3}
-import co.com.fppractice.PersonaCarateristicas.{Apellido, Edad, Nombre}
+//import co.com.fppractice.NewTypesExample.{Foo, Foo2, metodo1, metodo2, metodo3}
+//import co.com.fppractice.PersonaCarateristicas.{Apellido, Edad, Nombre}
 import io.estatico.newtype.macros.{newsubtype, newtype}
 
 
 
 package object NewTypesExample {
 
-
+/*
   @newsubtype case class Foo(x: Int)
   @newtype case class Foo2(x: Int)
 
@@ -28,9 +28,9 @@ package object NewTypesExample {
 
 package object PersonaCarateristicas{
 
-  @newsubtype case class Nombre(s:String)
+  @newsubtype case class Nombree(s:String)
   object Nombre {
-    def apply(s:String): Nombre ={
+    def apply(s:String): Nombree ={
       Nombre(s.capitalize)
     }
   }
@@ -47,7 +47,7 @@ package object PersonaCarateristicas{
     PersonaUnSafe(apellido, nombre.capitalize, edad)
   }
 
-  def crearPersona(nombre:Nombre,apellido:Apellido, edad:Edad):Persona = {
+  def crearPersona(nombre:Nombree,apellido:Apellido, edad:Edad):Persona = {
     Persona(nombre,apellido, edad)
   }
 
@@ -93,5 +93,5 @@ object Main7878 extends App{
   metodo2(x1)
   metodo1(x2)
   metodo2(24)
-
+*/
 }
