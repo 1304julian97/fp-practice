@@ -1,4 +1,4 @@
-package co.com.fppractice
+package co.com.fppractice.cats
 
 import java.time.LocalDateTime
 
@@ -8,7 +8,6 @@ import cats.effect.{Concurrent, ExitCode, IO, IOApp, Timer}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.DurationInt
 import scala.concurrent.{Await, Future}
-import scala.util.{Failure, Success, Try}
 
 
 trait Monoide[A]{
@@ -138,7 +137,6 @@ import cats.effect.concurrent.Semaphore
 import cats.syntax.all._
 
 import scala.concurrent.ExecutionContext
-import scala.concurrent.duration._
 
 // Needed for getting a Concurrent[IO] instance
 
@@ -171,7 +169,6 @@ object MainSemaphore extends IOApp{
   }
 
 
-  def someExpensiveTask[F[_]]: F[Unit] = IO.sleep(1.second) >> someExpensiveTask
 
   override def run(args: List[String]): IO[ExitCode] = {
     val program: IO[Unit] = {
